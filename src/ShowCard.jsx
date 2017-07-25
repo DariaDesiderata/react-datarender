@@ -5,8 +5,8 @@ const Wrapper = styled.div`
   width: 32%;
   border: 2px solid #333;
   border-radius: 4px;
-  margin-bottom: 25px;
-  padding-right: 10px;
+  margin: 25px;
+  padding: 10px;
   overflow: hidden;
 `;
 

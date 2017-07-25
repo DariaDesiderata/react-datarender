@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import ShowCard from './ShowCard';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
 
 class Search extends Component {
   constructor(props) {
@@ -22,7 +29,6 @@ class Search extends Component {
       )
       .then(res => {
         this.setState({ apiData: res.data });
-        console.log(res.data);
       });
   }
   render() {
@@ -36,7 +42,7 @@ class Search extends Component {
             placeholder="Search"
           />
         </header>
-        <div>
+        <Container>
           {this.state.apiData
             .filter(
               item =>
@@ -45,7 +51,7 @@ class Search extends Component {
                   .indexOf(this.state.searchTerm.toUpperCase()) >= 0
             )
             .map(item => <ShowCard key={item.id} item={item} />)}
-        </div>
+        </Container>
       </div>
     );
   }
