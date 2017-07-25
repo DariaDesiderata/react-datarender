@@ -14,13 +14,14 @@ const ShowCard = props =>
   <Wrapper>
     <div>
       <h3>
-        {props.item.name}
+        Product name: {props.item.name}
       </h3>
       <h4>
-        {props.item.body}
+        Description: {props.item.body}
       </h4>
       <p>
-        {props.item.price_gram}
+        Price: ${' '}
+        {props.item.price_gram ? props.item.price_gram : props.item.price_unit}
       </p>
     </div>
   </Wrapper>;
