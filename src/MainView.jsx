@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ShowCard from './ShowCard';
 import Sort from './Sort';
 import Search from './Search';
 import TabContent from './TabContent';
@@ -105,24 +104,17 @@ class MainView extends Component {
         />
         <Sort handleSort={this.handleSort} />
         <div className="tab">
-          <Button className="tablinks" onClick={this.selectTab.bind(this, 1)}>
-            Indica
-          </Button>
-          <Button className="tablinks" onClick={this.selectTab.bind(this, 2)}>
-            Sativa
-          </Button>
-          <Button className="tablinks" onClick={this.selectTab.bind(this, 3)}>
-            Hybrid
-          </Button>
-          <Button className="tablinks" onClick={this.selectTab.bind(this, 4)}>
-            Extract
-          </Button>
-          <Button className="tablinks">Edible</Button>
-          <Button className="tablinks">Tincture</Button>
-          <Button className="tablinks">Topicals</Button>
-          <Button className="tablinks">Grow</Button>
-          <Button className="tablinks">Gear</Button>
-          <Button className="tablinks">Preroll</Button>
+          <Button onClick={this.selectTab.bind(this, null)}>See all</Button>
+          <Button onClick={this.selectTab.bind(this, 1)}>Indica</Button>
+          <Button onClick={this.selectTab.bind(this, 2)}>Sativa</Button>
+          <Button onClick={this.selectTab.bind(this, 3)}>Hybrid</Button>
+          <Button onClick={this.selectTab.bind(this, 5)}>Extract</Button>
+          <Button onClick={this.selectTab.bind(this, 4)}>Edible</Button>
+          <Button onClick={this.selectTab.bind(this, 9)}>Tincture</Button>
+          <Button onClick={this.selectTab.bind(this, 11)}>Topicals</Button>
+          <Button onClick={this.selectTab.bind(this, 99)}>Grow</Button>
+          <Button onClick={this.selectTab.bind(this, 10)}>Gear</Button>
+          <Button onClick={this.selectTab.bind(this, 12)}>Preroll</Button>
         </div>
         <TabContent products={filteredProducts} />
       </div>

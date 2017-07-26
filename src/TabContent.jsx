@@ -31,11 +31,12 @@ class TabContent extends Component {
         quarter: item.price_quarter,
         half_ounce: item.price_half_ounce,
         ounce: item.price_ounce,
-        unit: item.price_unit
+        each: item.price_unit
       };
       let arr = Object.values(priceObj);
       let lowestPrice = Math.min(...arr.filter(Boolean));
       let unit = getKey(lowestPrice, priceObj);
+
       return (
         <ShowCard
           key={item.id}
