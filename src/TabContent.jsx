@@ -15,13 +15,7 @@ class TabContent extends Component {
 
   render() {
     const { products } = this.props;
-    const getKey = (value, obj) => {
-      for (let prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-          if (obj[prop] === value) return prop;
-        }
-      }
-    };
+
     const showProduct = products.map(item => {
       let priceObj = {
         half_gram: item.price_half_gram,
@@ -33,16 +27,36 @@ class TabContent extends Component {
         ounce: item.price_ounce,
         each: item.price_unit
       };
-      let arr = Object.values(priceObj);
-      let lowestPrice = Math.min(...arr.filter(Boolean));
-      let unit = getKey(lowestPrice, priceObj);
 
+      const lowestPrice = priceObj => {
+        let lowestUnit = null;
+        let lowestVal = null;
+        Object.keys(priceObj).forEach(key => {
+          const objValue = priceObj[key];
+          if (
+            lowestVal === null &&
+            typeof objValue === 'number' &&
+            objValue !== 0
+          ) {
+            lowestUnit = key;
+            lowestVal = objValue;
+          } else if (
+            typeof lowestVal === 'number' &&
+            (objValue > 0 && objValue < lowestVal)
+          ) {
+            lowestUnit = key;
+            lowestVal = objValue;
+          }
+        });
+
+        return { [lowestUnit]: lowestVal };
+      };
+      console.log(lowestPrice(priceObj));
       return (
         <ShowCard
           key={item.id}
           item={item}
-          lowestPrice={lowestPrice}
-          unit={unit}
+          lowestPrice={lowestPrice(priceObj)}
         />
       );
     });
