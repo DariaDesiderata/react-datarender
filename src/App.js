@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './loading.png';
 import './App.css';
-import Search from './Search.jsx';
+import MainView from './MainView.jsx';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -21,7 +21,7 @@ class App extends Component {
           <h2>Native Roots apothecary menu</h2>
         </Wrapper>
         <div>
-          <Search />
+          <MainView />
         </div>
       </div>
     );

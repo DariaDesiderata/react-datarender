@@ -20,8 +20,7 @@ const ShowCard = props =>
         Description: {props.item.body}
       </h4>
       <p>
-        Price: ${' '}
-        {props.item.price_gram ? props.item.price_gram : props.item.price_unit}
+        Price: ${props.lowestPrice} /{props.unit}
       </p>
     </div>
   </Wrapper>;
