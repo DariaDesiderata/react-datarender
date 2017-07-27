@@ -1,0 +1,1 @@
+export const USER_SELECTED_TAB = 'USER_SELECTED_TAB';
