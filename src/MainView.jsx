@@ -1,9 +1,15 @@
+/* eslint-diasble */
+
 import React, { Component } from 'react';
 import Sort from './Sort';
 import Search from './Search';
 import TabContent from './TabContent';
 import axios from 'axios';
 import styled from 'styled-components';
+// import { userSelectedTab } from './redux/actions/tabs/tabs.action';
+// import Store from './redux/store/store';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
 const Button = styled.button`
   height: 40px;
@@ -64,9 +70,7 @@ class MainView extends Component {
   }
 
   selectTab(tabNum) {
-    this.setState({
-      selectedTab: tabNum
-    });
+    // Store.dispatch(userSelectedTab(tabNum));
   }
 
   componentDidMount() {
@@ -122,4 +126,20 @@ class MainView extends Component {
   }
 }
 
-export default MainView;
+// function mapStateToProps(state) {
+//   // let { currentTab } = state;
+//   // return currentTab;
+//   console.log(state);
+// }
+// function matchDispatchToProps(dispatch) {
+//   return bindActionCreators(
+//     {
+//       userSelectedTab
+//     },
+//     dispatch
+//   );
+// }
+
+// export default MainView
+
+export default connect(mapStateToProps, matchDispatchToProps)(MainView);

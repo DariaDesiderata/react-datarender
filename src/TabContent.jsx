@@ -51,7 +51,7 @@ class TabContent extends Component {
 
         return { [lowestUnit]: lowestVal };
       };
-      console.log(lowestPrice(priceObj));
+
       return (
         <ShowCard
           key={item.id}
