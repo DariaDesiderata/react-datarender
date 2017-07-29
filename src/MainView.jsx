@@ -6,10 +6,10 @@ import Search from './Search';
 import TabContent from './TabContent';
 import axios from 'axios';
 import styled from 'styled-components';
-// import { userSelectedTab } from './redux/actions/tabs/tabs.action';
-// import Store from './redux/store/store';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { userSelectedTab } from './redux/actions/tabs/tabs.action';
+import Store from './redux/store/store';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 const Button = styled.button`
   height: 40px;
@@ -70,7 +70,7 @@ class MainView extends Component {
   }
 
   selectTab(tabNum) {
-    // Store.dispatch(userSelectedTab(tabNum));
+    Store.dispatch(userSelectedTab(tabNum));
   }
 
   componentDidMount() {
@@ -126,20 +126,19 @@ class MainView extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   // let { currentTab } = state;
-//   // return currentTab;
-//   console.log(state);
-// }
-// function matchDispatchToProps(dispatch) {
-//   return bindActionCreators(
-//     {
-//       userSelectedTab
-//     },
-//     dispatch
-//   );
-// }
+function mapStateToProps(state) {
+  let { currentTab } = state;
+  return currentTab;
+}
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      userSelectedTab
+    },
+    dispatch
+  );
+}
 
-// export default MainView
+// export default MainView;
 
 export default connect(mapStateToProps, matchDispatchToProps)(MainView);
